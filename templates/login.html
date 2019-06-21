@@ -1,0 +1,71 @@
+<!-- 
+	Created by Tiantong Li
+	Uni id: 1037952
+	Email address is tiantongl1@student.unimelb.edu.au 
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<!-- reference stylesheet-->
+<link rel = "stylesheet" type = "text/css" href = "{{ url_for('static', filename='login.css') }}" />
+</head>
+<body>
+
+<h1 style="text-align: center;">Login Form</h1>
+
+<form action="/action_page.php" style="width: 400px;display: block;margin-left: auto;margin-right: auto;">
+  <div class="imgcontainer">
+    <img src="http://i64.tinypic.com/2z6e8ft.png" alt="login" class="avatar">
+  </div>
+
+<form name="login">
+  <div class="container">
+    <label><b>Username</b></label>
+    <input id="name" type="text" placeholder="Enter Username" name="uname" required>
+    <label><b>Password</b></label>
+    <input id="psw" type="password" placeholder="Enter Password" name="psw" required>
+        
+    <input type="button" onclick="check(this.form)" value="Login" style="background-color: green; color: white; width: 100%;height: 40px;">
+    <label>
+      <input type="checkbox" checked="checked" name="remember"> Remember me
+    </label>
+  </div>
+
+  <div class="container" style="background-color:#f1f1f1;">
+    <button type="button" class="cancelbtn" id="cancel">Cancel</button>
+    <button type="button" class="forgetbtn" id="forget" style="width: auto;padding: 10px 18px; float:right;">Forget</button>
+  </div>
+</form>
+
+<!-- javascript code-->
+<script type="text/javascript"> 
+
+// check if the username and the password are correct
+  function check(form){
+    // if the username and the password are correct, then direct to the home page
+    if (form.uname.value =="admin" && form.psw.value == "admin"){
+      window.open('home');
+    }
+    // if the username or the password are incorrect, then reload the login page
+    else{
+      alert("invalid username or wrong password");
+      location.href = "/login";
+    }
+
+  }
+  // if click cancel button, then reload the login page
+  document.getElementById("cancel").onclick = function () {
+        location.href = "/login";
+      }
+  // if click forget button, then give a hint
+  document.getElementById("forget").onclick = function () {
+        alert("check intruction!! Hint: admin.")
+      }
+</script>
+
+</body>
+</html>
+

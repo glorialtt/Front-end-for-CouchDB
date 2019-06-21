@@ -1,0 +1,82 @@
+<!-- 
+	Created by Tiantong Li
+	Uni id: 1037952
+	Email address is tiantongl1@student.unimelb.edu.au 
+-->
+
+<!DOCTYPE html>
+<html>
+<head> <!-- stylesheet used-->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel = "stylesheet" type = "text/css" href = "{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+	<div class="jumbotron jumbotron-billboard">
+		<div class="img"></div>
+	    <div class="container">
+	        <div class="row">
+	            <div class="col-lg-12">
+	              <h2>COMP 90024 Assignment 2 Team 57</h2>
+	                <p>Team Members: </p>
+	                <p style="text-indent: 50px;">Guoen Jin, Haikuan Liu, Hanchen Qi, Tiantong Li, Yixin Su</p>
+					<p>Project Description: </p>
+	                <p style="text-indent: 50px;">The team chooses four cities (Sydney, Melbourne, Adelaide and Brisbane) 
+					as regions to harvest tweets. The deadly sin is gluttony.</p>
+					<p>Contact: </p>
+	                <p style="text-indent: 50px;">If you have any question, feel free to contact us. All codes are 
+					included in project COMP90024ASS2 in Github: <a class="btn btn-default" target="_blank" href="https://github.com/suyixin12123/COMP90024ASS2_Team57" role="button">Click and see codes in Github &raquo;</a>
+					</p>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+
+	<div class="container"> <!-- Define the format of showing tasks-->
+
+	    <div class="row">
+	        <div class="col-lg-12">
+	            <h2>Twitter Post Number in 4 areas</h2>
+	            <p>Description: The task shows the total number of harvested tweets in Sydney, Melbourne, Brisbane 
+				and Adelaide</p>
+	            <p>
+	            	<a class="btn btn-default" target="_blank" href="/twitter" role="button">Click and see the result &raquo;</a>
+	            </p>
+
+		    <hr>
+
+		    	<h2>Aurin Data</h2>
+	            <p>Description: The task shows obesity rate, chronic disease rate, high blood pressure rate, 
+				low exercise rate, mental expression and overweight rate in Sydney, Melbourne, Brisbane 
+				and Adelaide respectively.</p>
+	            <p>
+	            	<a class="btn btn-default" target="_blank" href="/aurin" role="button">Click and see analysis result &raquo;</a>
+	            </p>
+
+		    <hr>
+
+	            <h2>Pearson Correlation Results</h2>
+	            <p>Description: The task shows the results of correlation analysis between six diseases 
+				(obesity rate, chronic disease rate, high blood pressure rate, low exercise rate, mental 
+				expression and overweight rate) and food. Food50 indicates top 50 words that are most likely
+				 related to the topic of food. Food100 indicates top 100 words that are most likely
+				 related to the topic of food.</p>
+	            <p>
+	            	<a class="btn btn-default" target="_blank" href="/food" role="button">Click and see analysis result &raquo;</a>
+	            </p>				
+	        </div>
+	    </div>
+
+	    <hr>
+
+	    <footer>
+	        <p>&copy; 2019 Tiantong Li (tiantongl1@student.unimelb.edu.au)</p>
+	    </footer>
+	</div>
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
+

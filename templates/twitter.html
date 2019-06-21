@@ -1,0 +1,152 @@
+<!-- 
+	Created by Tiantong Li
+	Uni id: 1037952
+	Email address is tiantongl1@student.unimelb.edu.au 
+-->
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+      <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+      <title>Demo</title>
+      <header class="py-3 bg-dark">
+    <h1 class="text-center text-white">Comp90024 Assignment 4: group 57</h1>
+    </header>
+      <style>
+        html, body, #map { height: 100%; margin: 0; padding: 0; overflow: hidden; }
+      </style>
+  </head>
+  <body>
+  	<div class="container" style="padding-top: 20px">
+    <h2 class="text-center">Total number of harvested twitters</h2>
+    <div id="map" style="width:100%; height:470px;"></div> <!-- add map-->
+
+    <!-- javascript codes-->
+    <script>
+    //define the style of the map
+    var mapStyle = [{
+        'stylers': [{'visibility': 'on'}] //off makes the whole map white
+      }, {
+        'featureType': 'landscape',
+        'elementType': 'geometry',
+        'stylers': [{'visibility': 'on'}, {'color': '#fcfcfc'}]
+      }, {
+        'featureType': 'water',
+        'elementType': 'geometry',
+        'stylers': [{'visibility': 'on'}, {'color': '#bfd4ff'}]
+      }];
+
+      //some variables
+      var map;
+      var sydney;
+      var melbourne;
+      var brisbane;
+      var adelaide;
+      var infoWindow;
+
+      function initMap() {
+        // load the map
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: -33, lng: 143},
+          zoom: 5,
+          styles: mapStyle
+        });
+
+        // bounding boxes of filtering tweets
+        sydney = new google.maps.Rectangle({
+        strokeColor: '#FF0000',
+        strokeOpacity: 0.8,
+        strokeWeight: 2,
+        fillColor: '#FF0000',
+        fillOpacity: 0.35,
+          bounds: {
+            north: -33.5780,
+            south: -34.1399,
+            east: 151.3439,
+            west: 150.6396
+          }
+        });
+
+        melbourne = new google.maps.Rectangle({
+		    strokeColor: '#F000F0',
+		    strokeOpacity: 0.8,
+		    strokeWeight: 2,
+		    fillColor: '#F000F0',
+		    fillOpacity: 0.35,
+		    bounds: {
+		      north: -37.5401,
+		      south: -38.2250,
+		      east: 145.5498,
+		      west: 144.5532
+		    }
+		  });
+
+        adelaide = new google.maps.Rectangle({
+		    strokeColor: '#FF7A33',
+		    strokeOpacity: 0.8,
+		    strokeWeight: 2,
+		    fillColor: '#FF7A33',
+		    fillOpacity: 0.35,
+		    bounds: {
+		      north: -34.6481,
+		      south: -35.3490,
+		      east: 138.7832,
+		      west: 138.4421
+		    }
+		  });
+        brisbane = new google.maps.Rectangle({
+		    strokeColor: '#0000FF',
+		    strokeOpacity: 0.8,
+		    strokeWeight: 2,
+		    fillColor: '#0000FF',
+		    fillOpacity: 0.35,
+		    bounds: {
+		      north: -27.1203,
+		      south: -27.7210,
+		      east: 153.2204,
+		      west: 152.6797
+		    }
+		  });
+
+        sydney.setMap(map);
+        melbourne.setMap(map);
+        adelaide.setMap(map);
+        brisbane.setMap(map);
+
+        // click even for each bounding box
+        rectangleClickEvent(sydney, "sydney")
+        rectangleClickEvent(melbourne, "melbourne")
+        rectangleClickEvent(adelaide, "adelaide")
+        rectangleClickEvent(brisbane, "brisbane")
+
+        // Define an info window on the map.
+        infoWindow = new google.maps.InfoWindow();
+
+      }
+
+      // define the function of showing the information window when the mouse move over the bounding box
+      function rectangleClickEvent(rectangle, name){
+      	rectangle.addListener('mouseover', function(event){
+     	  var ne = rectangle.getBounds().getNorthEast();
+        var sw = rectangle.getBounds().getSouthWest();
+        var data = JSON.parse('{{ data|safe }}');
+        if(name == 'brisbane'){
+          name = 'bristane'
+        }
+        var contentString =  name + " has " + data[name].total_twitter * 3 + " twitters";
+        // Set the info window's content and position.
+        infoWindow.setContent(contentString);
+        infoWindow.setPosition(ne);
+
+        infoWindow.open(map);
+      	});
+      }
+
+    </script>
+    <!--reference to Google map, including a Google map API key-->
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyATY1V9k8bfOyYD7zv3EQT7tUNNyuuXQl8&callback=initMap">
+    </script>
+  </body>
+</html>

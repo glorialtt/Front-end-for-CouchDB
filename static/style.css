@@ -1,0 +1,40 @@
+/*
+	Created by Tiantong Li
+	Uni id: 1037952
+	Email address is tiantongl1@student.unimelb.edu.au 
+*/
+.jumbotron-billboard .img {
+	margin-bottom: 0px;
+	opacity: 0.2;
+	color: #fff;
+	background: #000 url("https://cdn2.hubspot.net/hub/504553/hubfs/Six_Major_IT_Cloud_Computing_Terms_Simplified.jpg?t=1472780210350&width=1696&height=1132&name=Six_Major_IT_Cloud_Computing_Terms_Simplified.jpg") top center no-repeat;
+	width: 100%;
+	height: 100%;
+	background-size: cover;
+	overflow: hidden;
+	position:absolute;
+	top:0;
+	left:0;
+	z-index:1;
+}
+
+.jumbotron h2 {margin-top:0;}
+
+.jumbotron {
+	position:relative;
+	padding-top:50px;
+	padding-bottom:50px;
+	height: 400px;
+}
+
+.jumbotron .container {
+	position:relative;
+	z-index:2;
+}
+
+@media screen and (max-width: 768px) {
+	.jumbotron {
+		padding-top:20px;
+		padding-bottom:20px;
+	}
+}
